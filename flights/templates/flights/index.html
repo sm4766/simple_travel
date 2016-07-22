@@ -7,14 +7,14 @@ This is a sample site you can test with BlazeMeter!
 {% csrf_token %}
 <select name="from_city">
 	{% for city in cities %}
-		<option value="{{city.id}}">{{city.name}}</option>
+		<option value="{{city.name}}">{{city.name}}</option>
 	{% endfor %}
 </select>
 
 <h2>Choose your arrival city:</h2>
 <select name="to_city">
 	{% for city in cities %}
-		<option value="{{city.id}}">{{city.name}}</option>
+		<option value="{{city.name}}">{{city.name}}</option>
 	{% endfor %}
 </select>
 <br>

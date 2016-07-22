@@ -14,8 +14,8 @@ def index(request):
 
 def reserve(request):
 	if request.method == 'POST':
-		from_city = get_object_or_404(City, id=request.POST['from_city'])
-		to_city = get_object_or_404(City, id=request.POST['to_city'])
+		from_city = get_object_or_404(City, name=request.POST['from_city'])
+		to_city = get_object_or_404(City, name=request.POST['to_city'])
 		#to_city = request.POST['to_city']
 
 		#routes = get_object_or_404(Route, from_city__exact=from_city, to_city__exact=to_city)
