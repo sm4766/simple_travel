@@ -38,10 +38,10 @@ execution:
         url: ${__P(base_url)}/reserve/
         method: POST
         body:
-          fromPort: New York
-          toPort: Boston
+          from_city: New York
+          to_city: Boston
           csrfmiddlewaretoken: ${token}
         think-time: 1s
         assert:
         - from New York
-        - to Philadelphia
+        - to Boston
