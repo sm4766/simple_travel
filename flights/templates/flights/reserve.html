@@ -1,0 +1,8 @@
+<h1>Flights from {{route.from_city}} to {{route.to_city}}:</h1>
+
+<table>
+	<tr><th>Flight Number</th><th>Airline</th><th>Departs: {{route.from_city}}</th><th>Arrives: {{route.to_city}}</th><th>Price</th></tr>
+{% for flight in flights %}
+	<tr><td>{{flight}}</td><td>{{flight.airline}}</td><td>{{flight.depart}}</td><td>{{flight.arrive}}</td><td>${{flight.price}}</td></tr>
+{% endfor %}
+</table>

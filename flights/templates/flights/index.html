@@ -1,0 +1,23 @@
+<h1>Welcome to the Simple Travel Agency!</h1>
+
+This is a sample site you can test with BlazeMeter!
+
+<h2>Choose your departure city:</h2>
+<form action="reserve/" method="post">
+{% csrf_token %}
+<select name="from_city">
+	{% for city in cities %}
+		<option value="{{city.id}}">{{city.name}}</option>
+	{% endfor %}
+</select>
+
+<h2>Choose your arrival city:</h2>
+<select name="to_city">
+	{% for city in cities %}
+		<option value="{{city.id}}">{{city.name}}</option>
+	{% endfor %}
+</select>
+<br>
+<br>
+<input type="submit" class="btn btn-primary" value="Find Flights">
+</form>
