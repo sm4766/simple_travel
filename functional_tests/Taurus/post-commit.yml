@@ -1,4 +1,4 @@
-#!/usr/local/bin/bzt
+#!/usr/local/bin/bzt -o modules.console.disable=true
 ---
 
 included-configs:
