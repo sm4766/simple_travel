@@ -13,7 +13,7 @@ scenarios:
     - include-scenario: reservation
 
 execution:
-  concurrency: 50
+  concurrency: 30
   hold-for: 3m
   ramp-up: 3m
   scenario: staging
