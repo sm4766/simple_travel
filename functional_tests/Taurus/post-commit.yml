@@ -21,7 +21,7 @@ execution:
 services:
 - module: passfail
   criteria:
-  - avg-rt of home-page>150ms for 10s, stop as failed
-  - fail of home-page>1% for 10s, stop as failed
+  - avg-rt of Home>150ms for 10s, stop as failed
+  - fail of Home>1% for 10s, stop as failed
   - avg-rt of reservation>5s for 10s, stop as failed
   - fail of reservation>10% for 10s, stop as failed
