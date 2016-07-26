@@ -13,7 +13,7 @@ scenarios:
     - include-scenario: reservation
 
 execution:
-  concurrency: 20
+  concurrency: 10
   hold-for: 3m
   ramp-up: 30s
   scenario: pre-commit
