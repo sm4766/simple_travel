@@ -11,5 +11,5 @@ node {
    sh ". /etc/simple_travel.env && ./manage.py localhost:8000&"
 
    stage 'Load Test'
-   sh "cd ${PWD}/load_tests && ./post-commit.yml"
+   sh "cd load_tests && ./post-commit.yml"
 }
