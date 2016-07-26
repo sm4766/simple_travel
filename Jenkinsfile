@@ -10,8 +10,6 @@ node {
    stage 'Start Server'
    sh "./manage.py localhost:8000&"
 
-   // Mark the code build 'stage'....
    stage 'Load Test'
-   // Run load test
    sh "cd ${PWD}/load_tests && ./post-commit.yml"
 }
