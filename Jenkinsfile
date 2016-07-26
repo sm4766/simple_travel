@@ -8,5 +8,6 @@ node {
    // Mark the code build 'stage'....
    stage 'Load Test'
    // Run the maven build
+   sh "env"
    sh "cd workspace/load_tests && ./post-commit.yml"
 }
