@@ -8,6 +8,6 @@ node {
 
    // Mark the code build 'stage'....
    stage 'Load Test'
-   // Run the maven build
-   sh "cd $PWD/load_tests && ./post-commit.yml"
+   // Run load test
+   sh "cd ${PWD}/load_tests && ./post-commit.yml"
 }
