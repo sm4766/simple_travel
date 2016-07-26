@@ -8,5 +8,5 @@ manage.py
 requirements.txt
 install-deps.sh"
 
-scp -r -i /home/bmath/.ssh/simple_travel.pem $files ubuntu@54.210.176.248:app
+scp -r -i /etc/simple_travel.pem $files ubuntu@54.210.176.248:app
 
