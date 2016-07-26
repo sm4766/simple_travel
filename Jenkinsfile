@@ -7,7 +7,7 @@ node {
 
    // Run the server
    stage 'Start Server'
-   sh ". /etc/simple_travel.env && ./manage.py localhost:8000&"
+   sh ". /etc/simple_travel.env && ./manage.py runserver localhost:8000&"
 
    stage 'Load Test'
    sh "cd load_tests && ./post-commit.yml"
