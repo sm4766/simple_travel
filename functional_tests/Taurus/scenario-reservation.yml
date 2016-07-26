@@ -1,0 +1,33 @@
+---
+scenarios:
+  reservation:
+    requests:
+      - transaction: reservation
+        do:
+        - label: Home
+          url: /
+          method: GET
+          think-time: 3s
+          assert:
+            - subject: body
+              contains:
+              - Welcome
+              regexp: false
+          extract-regexp: 
+            token: "<input type='hidden' name='csrfmiddlewaretoken' value='(.+)' />"
+        - label: select cities
+          url: /reserve/
+          method: POST
+          body: 
+            from_city: New York
+            to_city: Boston
+            csrfmiddlewaretoken: ${token}
+          think-time: 1s
+          assert:
+            - subject: body
+              contains:
+              - from New York
+              - to Boston
+              regexp: false
+
+

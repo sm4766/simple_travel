@@ -1,0 +1,17 @@
+---
+scenarios:
+  home-page:
+    requests:
+      - label: Home
+        url: /
+        method: GET
+        think-time: 500ms
+        assert:
+          - contains:
+            - Welcome
+            subject: body
+            regexp: false
+          - contains:
+            - <option value="Boston".*</option>
+            subject: body
+            regexp: true
