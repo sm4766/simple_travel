@@ -2,21 +2,21 @@
 ---
 
 included-configs:
-- scenario-home-page.yml
-- scenario-reservation.yml 
+- ../../functional-tests/Taurus/scenario-home-page.yml
+- ../../functional-tests/Taurus/scenario-reservation.yml 
 
 scenarios:
-  pre-commit:
-    default-address: http://localhost:8000
+  staging:
+    default-address: http://54.210.176.248:8000
     requests:
     - include-scenario: home-page
     - include-scenario: reservation
 
 execution:
-  concurrency: 10
+  concurrency: 30
   hold-for: 3m
-  ramp-up: 30s
-  scenario: pre-commit
+  ramp-up: 3m
+  scenario: staging
 
 services:
 - module: passfail
