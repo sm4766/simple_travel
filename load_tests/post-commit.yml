@@ -1,6 +1,7 @@
 #!/usr/local/bin/bzt --option=modules.console.disable=true
 ---
 
+
 included-configs:
 - ../functional_tests/Taurus/scenario-home-page.yml
 - ../functional_tests/Taurus/scenario-reservation.yml 
