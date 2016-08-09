@@ -2,8 +2,8 @@
 ---
 
 included-configs:
-- scenario-home-page.yml
-- scenario-reservation.yml 
+- ../functional_tests/Taurus/scenario-home-page.yml
+- ../functional_tests/Taurus/scenario-reservation.yml 
 
 scenarios:
   staging:

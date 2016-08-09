@@ -7,13 +7,13 @@ included-configs:
 
 scenarios:
   pre-commit:
-    default-address: http://aws-uut:8000
+    default-address: http://localhost:8000
     requests:
     - include-scenario: home-page
     - include-scenario: reservation
 
 execution:
-  concurrency: 3
-  hold-for: 1m
-  ramp-up: 30s
+  concurrency: 1
+  hold-for: 30s
+  ramp-up: 0
   scenario: pre-commit

@@ -7,8 +7,11 @@ node {
 
    // Run the server
    stage 'Start Server'
-   sh "./manage.py localhost:8000&"
+   sh ". /etc/simple_travel.env && ./manage.py runserver localhost:8000&"
 
    stage 'Load Test'
-   sh "cd ${PWD}/load_tests && ./post-commit.yml"
+   sh "cd load_tests && ./post-commit.yml"
+
+   stage 'Kill Server'
+   sh "kill `ps ax | grep '[/]usr/bin/python ./manage.py runserver' | awk '{print $1}'`"
 }

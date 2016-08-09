@@ -29,7 +29,7 @@ class Airline(models.Model):
 
 class Flight(models.Model):
 	timestamp = models.DateTimeField('timestamp', auto_now_add=True)
-	flight_number = models.IntegerField('flight number', unique=True)
+	flight_number = models.IntegerField('flight number', unique=False)
 	airline = models.ForeignKey(Airline, on_delete=models.CASCADE)
 	route = models.ForeignKey(Route, on_delete=models.CASCADE)
 	depart = models.DateTimeField('departure time')

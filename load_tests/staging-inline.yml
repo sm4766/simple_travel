@@ -1,0 +1,71 @@
+---
+
+execution:
+  concurrency: 65
+  hold-for: 1m
+  ramp-up: 3m
+  scenario: staging
+
+
+reporting:
+  - module: junit-xml
+
+# services:
+# - module: passfail
+#  criteria:
+#  - avg-rt of Home>150ms for 10s, stop as failed
+#  - fail of Home>1% for 10s, stop as failed
+#  - avg-rt of reservation>5s for 10s, stop as failed
+#  - fail of reservation>10% for 10s, stop as failed
+
+scenarios:
+  staging:
+    default-address: http://54.210.176.248:8000
+    requests:
+    - include-scenario: home-page
+    - include-scenario: reservation
+
+  reservation:
+    requests:
+      - transaction: reservation
+        do:
+        - label: Home
+          url: /
+          method: GET
+          think-time: 3s
+          assert:
+            - subject: body
+              contains:
+              - Hello
+              regexp: false
+          extract-regexp: 
+            token: "<input type='hidden' name='csrfmiddlewaretoken' value='(.+)' />"
+        - label: select cities
+          url: /reserve/
+          method: POST
+          body: 
+            from_city: New York
+            to_city: Boston
+            csrfmiddlewaretoken: ${token}
+          think-time: 1s
+          assert:
+            - subject: body
+              contains:
+              - from New York
+              - to Boston
+              regexp: false
+  home-page:
+    requests:
+      - label: Home
+        url: /
+        method: GET
+        think-time: 500ms
+        assert:
+          - contains:
+            - Hello
+            subject: body
+            regexp: false
+          - contains:
+            - <option value="Boston".*</option>
+            subject: body
+            regexp: true
