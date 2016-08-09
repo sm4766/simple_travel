@@ -15,7 +15,7 @@ scenarios:
 
 execution:
   concurrency: 10
-  hold-for: 3m
+  hold-for: 1m
   ramp-up: 30s
   scenario: pre-commit
 
