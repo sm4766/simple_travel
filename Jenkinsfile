@@ -1,17 +1,28 @@
 node {
-   // Mark the code checkout 'stage'....
-   stage 'Checkout'
 
-   // Checkout code from repository
-   checkout scm
+	try {
+	   // Mark the code checkout 'stage'....
+	   stage 'Checkout'
 
-   // Run the server
-   stage 'Start Server'
-   sh ". /etc/simple_travel.env && ./manage.py runserver localhost:8000&"
+	   // Checkout code from repository
+	   checkout scm
 
-   stage 'Load Test'
-   sh "cd load_tests && ./post-commit.yml"
+	   // Run the server
+	   stage 'Start Server'
+	   sh ". /etc/simple_travel.env && ./manage.py runserver localhost:8000&"
 
-   stage 'Kill Server'
-   sh "kill `ps ax | grep '[/]usr/bin/python ./manage.py runserver' | awk '{print $1}'`"
+	   stage 'Load Test'
+	   sh "cd load_tests && ./post-commit.yml"
+
+	   stage 'Kill Server'
+	   sh "kill `ps ax | grep '[/]usr/bin/python ./manage.py runserver' | awk '{print \$1}'`"
+
+	}
+
+	catch (err) {
+	   stage 'Kill Server'
+	   sh "kill `ps ax | grep '[/]usr/bin/python ./manage.py runserver' | awk '{print \$1}'`"
+
+	   throw err
+	}
 }
