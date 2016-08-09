@@ -11,4 +11,7 @@ node {
 
    stage 'Load Test'
    sh "cd load_tests && ./post-commit.yml"
+
+   stage 'Kill Server'
+   sh "kill `ps ax | grep '[/]usr/bin/python ./manage.py runserver' | awk '{print $1}'`"
 }
