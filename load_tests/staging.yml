@@ -12,8 +12,13 @@ scenarios:
     - include-scenario: home-page
     - include-scenario: reservation
 
+provisioning: cloud
+
 execution:
-  concurrency: 30
+  locations:
+    us-east-1: 1
+  concurrency: 
+    cloud: 65
   hold-for: 3m
   ramp-up: 3m
   scenario: staging
@@ -25,3 +30,8 @@ services:
   - fail of Home>1% for 10s, stop as failed
   - avg-rt of reservation>5s for 10s, stop as failed
   - fail of reservation>10% for 10s, stop as failed
+
+modules:
+  cloud:
+    test: simple_travel staging
+    project: simple_travel
