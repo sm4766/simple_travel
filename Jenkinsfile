@@ -12,7 +12,7 @@ node {
 	   sh ". /etc/simple_travel.env && ./manage.py runserver localhost:8000&"
 
 	   stage 'Load Test'
-	   sh "cd load_tests && ./post-commit.yml"
+	   sh "cd load_tests && bzt -report post-commit.yml ../functional_tests/Taurus/scenario-home-page.yml ../functional_tests/Taurus/scenario-reservation.yml"
 
 	   stage 'Kill Server'
 	   sh "kill `ps ax | grep '[/]usr/bin/python ./manage.py runserver' | awk '{print \$1}'`"

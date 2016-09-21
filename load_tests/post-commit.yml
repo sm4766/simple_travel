@@ -1,10 +1,5 @@
-#!/usr/local/bin/bzt --option=modules.console.disable=true
+#!/usr/local/bin/bzt -report
 ---
-
-
-included-configs:
-- ../functional_tests/Taurus/scenario-home-page.yml
-- ../functional_tests/Taurus/scenario-reservation.yml 
 
 scenarios:
   pre-commit:
@@ -14,7 +9,7 @@ scenarios:
     - include-scenario: reservation
 
 execution:
-  concurrency: 10
+  concurrency: 20
   hold-for: 1m
   ramp-up: 30s
   scenario: pre-commit
@@ -26,3 +21,10 @@ services:
   - fail of Home>1% for 10s, stop as failed
   - avg-rt of reservation>5s for 10s, stop as failed
   - fail of reservation>10% for 10s, stop as failed
+
+modules:
+  console:
+    disable: true
+  blazemeter:
+    browser-open: false
+
