@@ -1,11 +1,6 @@
 #!/usr/local/bin/bzt -report
 ---
 
-
-included-configs:
-- ../functional_tests/Taurus/scenario-home-page.yml
-- ../functional_tests/Taurus/scenario-reservation.yml 
-
 scenarios:
   pre-commit:
     default-address: http://localhost:8000
