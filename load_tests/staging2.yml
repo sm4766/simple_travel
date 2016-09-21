@@ -1,9 +1,5 @@
-#!/usr/local/bin/bzt --option=modules.console.disable=true
+#!/usr/local/bin/bzt -report
 ---
-
-included-configs:
-- ../functional_tests/Taurus/scenario-home-page.yml
-- ../functional_tests/Taurus/scenario-reservation.yml 
 
 scenarios:
   staging:
@@ -35,3 +31,8 @@ modules:
   cloud:
     test: simple_travel staging
     project: simple_travel
+  console:
+    disable: true
+  blazemeter:
+    browser-open: false
+
