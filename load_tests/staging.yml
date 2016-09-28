@@ -1,10 +1,6 @@
 #!/usr/local/bin/bzt --option=modules.console.disable=true
 ---
 
-included-configs:
-- ../functional_tests/Taurus/scenario-home-page.yml
-- ../functional_tests/Taurus/scenario-reservation.yml 
-
 scenarios:
   staging:
     default-address: http://54.210.176.248:8000
@@ -35,7 +31,6 @@ modules:
   blazemeter:
     address: "https://loadtest.dynatrace.com"
     data-address: "https://keynote-dataservice.blazemeter.com/"
-    token: 141fb622da1e5321cd53
   cloud:
     address: "https://loadtest.dynatrace.com"
     test: simple_travel staging
