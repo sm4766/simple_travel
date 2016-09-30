@@ -1,10 +1,6 @@
 #!/usr/local/bin/bzt
 ---
 
-included-configs:
-- scenario-home-page.yml
-- scenario-reservation.yml 
-
 scenarios:
   pre-commit:
     default-address: http://localhost:8000
@@ -13,7 +9,7 @@ scenarios:
     - include-scenario: reservation
 
 execution:
-  concurrency: 1
+  concurrency: 3
   hold-for: 30s
   ramp-up: 0
   scenario: pre-commit
