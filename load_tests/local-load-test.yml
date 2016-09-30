@@ -1,0 +1,23 @@
+#!/usr/local/bin/bzt
+---
+
+scenarios:
+  pre-commit:
+    default-address: http://localhost:8000
+    requests:
+    - include-scenario: home-page
+    - include-scenario: reservation
+
+execution:
+  concurrency: 10
+  hold-for: 1m
+  ramp-up: 30s
+  scenario: pre-commit
+
+services:
+- module: passfail
+  criteria:
+  - avg-rt of Home>150ms for 10s, stop as failed
+  - fail of Home>1% for 10s, stop as failed
+  - avg-rt of reservation>5s for 10s, stop as failed
+  - fail of reservation>10% for 10s, stop as failed
