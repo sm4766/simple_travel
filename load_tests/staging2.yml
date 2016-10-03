@@ -14,7 +14,7 @@ execution:
   locations:
     us-east-1: 1
   concurrency: 
-    cloud: 65
+    cloud: 50
   hold-for: 3m
   ramp-up: 3m
   scenario: staging
