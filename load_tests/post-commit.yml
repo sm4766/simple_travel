@@ -1,7 +1,7 @@
 ---
 
 scenarios:
-  pre-commit:
+  post-commit:
     default-address: http://localhost:8000
     requests:
     - include-scenario: home-page
@@ -11,7 +11,7 @@ execution:
   concurrency: 10
   hold-for: 1m
   ramp-up: 30s
-  scenario: pre-commit
+  scenario: post-commit
 
 services:
 - module: passfail

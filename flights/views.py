@@ -1,7 +1,7 @@
 from django.shortcuts import get_object_or_404, get_list_or_404, render
 from django.http import HttpResponseRedirect, HttpResponse
 #from django.core.urlresolvers import reverse
-
+from time import sleep
 from .models import City, Route, Airline, Flight, PaymentInfo
 
 
