@@ -14,7 +14,7 @@ execution:
   locations:
     us-east-1: 1
   concurrency: 
-    cloud: 65
+    cloud: 50
   hold-for: 3m
   ramp-up: 3m
   scenario: staging
@@ -22,10 +22,10 @@ execution:
 services:
 - module: passfail
   criteria:
-  - avg-rt of Home>150ms for 10s, stop as failed
-  - fail of Home>1% for 10s, stop as failed
-  - avg-rt of reservation>5s for 10s, stop as failed
-  - fail of reservation>10% for 10s, stop as failed
+  - avg-rt of Home>250ms for 60s, stop as failed
+  - fail of Home>1% for 60s, stop as failed
+  - avg-rt of reservation>5s for 60s, stop as failed
+  - fail of reservation>10% for 60s, stop as failed
 
 modules:
   cloud:
