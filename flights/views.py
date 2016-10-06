@@ -30,7 +30,6 @@ def reserve(request):
 			'flights': flights,
 		}
 		print context
-		sleep(5)
 		return render(request, 'flights/reserve.html', context)
 	else:
 		return HttpResponseRedirect('/')
