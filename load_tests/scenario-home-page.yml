@@ -8,7 +8,7 @@ scenarios:
         think-time: 500ms
         assert:
           - contains:
-            - Welcome
+            - Hello
             subject: body
             regexp: false
           - contains:
